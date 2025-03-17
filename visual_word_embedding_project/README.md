@@ -2,13 +2,13 @@
 
 **Welcome!**
 
-This is a Mandarin Chinese word2vec project created by Marie Wang. 
+This is a Mandarin Chinese word embedding project created by Marie Wang. 
 
 ### Some Background
-Traditionally, word2vec are used to measure semantic similarity between words based on the contexts in which they appear in. However, what if two characters in chinese have completeley different meanings but looks very similar visually? For example, the characters "努" and “恕” looks similar but are used in entirely different contexts. A traditional word2vec does not capture this visual similarity. Therefore, I created this word2vec project to measure the similarity in visual structure similarity instead of semantic meaning in Mandarin Chinese characters. 
+Traditionally, Word2vec are used to measure semantic similarity between words based on the contexts in which they appear in. However, what about two characters that have completely different meanings but looks very similar visually? For example, the characters "努" and “恕” looks similar but are used in entirely different contexts. A traditional Word2vec does not capture this visual similarity. Therefore, I created this word embedding project to measure the similarity in visual structure similarity instead of semantic meaning in Mandarin Chinese characters. 
 
 ### Current Status
-This project is still ***ongoing***. If you are a prospective employer or are interested, you can run a demo version that graphs 100 chinese characters based on their visual structure similarity. It should take a few minutes to run. 
+This project is still ***ongoing***. If you are a prospective employer or are interested, you can run a demo version that graphs 100 chinese characters based on their visual structure similarity. It should take a few seconds to run. 
 Run the demo like this:
 `cd visual_word_embedding_project`
 `python3 vwe_demo.py`
