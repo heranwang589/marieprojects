@@ -12,7 +12,7 @@ This project is still ***ongoing***. If you are a prospective employer or are in
 Run the demo like this:  
 `cd visual_word_embedding_project`  
 `python3 vwe_demo.py`  
-If labels for nodes are not showing on the graph, it could be that you do not have the font Songti SC installed.
+If labels for data points are not showing on the graph, it could be that you do not have the font Songti SC installed.
 
 ### How does this demo work?
 The demo uses hanzi_chaizi from Xiaoquan Kong (howl-anderson) to decompose Mandarin Chinese characters into its sub-components. Word embeddings are then created for each sub-component through gensim Word2vec. Finally, word embeddings (more accurately character embeddings) are created for each character by taking an average of the embeddings of their sub-components. The resulting word embedding are then graphed, with the characters that appear similar(i.e has similar sub-components) near to each other. 
