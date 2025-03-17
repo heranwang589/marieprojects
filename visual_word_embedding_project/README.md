@@ -9,7 +9,7 @@ Traditionally, Word2vec are used to measure semantic similarity between words ba
 
 ### Current Status
 This project is still ***ongoing***. If you are a prospective employer or are interested, you can run a demo version that graphs 100 chinese characters based on their visual structure similarity. It should take a few seconds to run. 
-Run the demo like this:
+Run the demo like this:  
 `cd visual_word_embedding_project`  
 `python3 vwe_demo.py`  
 If labels for nodes are not showing on the graph, it could be that you do not have the font Songti SC installed.
