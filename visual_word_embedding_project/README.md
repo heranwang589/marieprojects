@@ -5,7 +5,7 @@
 This is a Mandarin Chinese word embedding project created by Marie Wang. 
 
 ### Some Background
-Traditionally, Word2vec are used to measure semantic similarity between words based on the contexts in which they appear in. However, this approach falls short when dealing with characters or words that are visually similar yet semantically unrelated. For example, in Mandarin Chinese, the characters "努" and “恕” looks similar but are used in entirely different contexts. A traditional Word2vec does not capture this visual similarity. Therefore, I created this word embedding project to measure the similarity in visual structure similarity instead of semantic meaning in Mandarin Chinese characters. 
+Traditionally, Word2vec are used to measure semantic similarity between words based on the contexts in which they appear in. However, this approach falls short when dealing with characters or words that are visually similar yet semantically unrelated. For example, in Mandarin Chinese, the characters "努" and “恕” looks similar but are used in entirely different contexts. A traditional Word2vec does not capture this visual similarity. Therefore, I created this word embedding project to measure the similarity in visual structure instead of semantic meaning in Mandarin Chinese characters. 
 
 ### Current Status
 This project is still ***ongoing***. If you are a prospective employer or are interested, you can run a demo version that graphs 100 chinese characters based on their visual structure similarity. It should take a few seconds to run. 
