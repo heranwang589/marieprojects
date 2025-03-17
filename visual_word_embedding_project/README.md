@@ -10,11 +10,12 @@ Traditionally, Word2vec are used to measure semantic similarity between words ba
 ### Current Status
 This project is still ***ongoing***. If you are a prospective employer or are interested, you can run a demo version that graphs 100 chinese characters based on their visual structure similarity. It should take a few seconds to run. 
 Run the demo like this:
-`cd visual_word_embedding_project`
-`python3 vwe_demo.py`
+`cd visual_word_embedding_project`  
+`python3 vwe_demo.py`  
+If labels for nodes are not showing on the graph, it could be that you do not have the font Songti SC installed.
 
 ### How does this demo work?
-The demo uses hanzi_chaizi from Xiaoquan Kong (howl-anderson) to decompose Mandarin Chinese characters into its sub-components. Word embeddings are then created for each sub-component through gensim Word2vec. Finally, word embeddings are created for each character by taking an average of the embeddings of their sub-components. The resulting word embedding (more accurately character embeddings) are then graphed, with the characters that appear similar to each other (i.e has similar sub-components) near. 
+The demo uses hanzi_chaizi from Xiaoquan Kong (howl-anderson) to decompose Mandarin Chinese characters into its sub-components. Word embeddings are then created for each sub-component through gensim Word2vec. Finally, word embeddings (more accurately character embeddings) are created for each character by taking an average of the embeddings of their sub-components. The resulting word embedding are then graphed, with the characters that appear similar(i.e has similar sub-components) near to each other. 
 
 ### To-Do
 1. Fine-tune with supervised machine learning
