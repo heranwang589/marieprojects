@@ -18,5 +18,5 @@ If labels for data points are not showing on the graph, it could be that you do 
 The demo uses hanzi_chaizi from Xiaoquan Kong (howl-anderson) to decompose Mandarin Chinese characters into its sub-components. Word embeddings are then created for each sub-component through gensim Word2vec. Finally, word embeddings (more accurately character embeddings) are created for each character by taking an average of the embeddings of their sub-components. The resulting word embedding are then graphed, with the characters that appear similar(i.e has similar sub-components) near to each other. 
 
 ### To-Do
-1. Fine-tune with supervised machine learning
+1. Fine-tune Word2vec model with supervised machine learning
 2. Alternative model that generates embeddings from Image-based CNN to capture pixel-level similarity 
