@@ -1,13 +1,7 @@
-import vwe
 import umap
-import random
 import numpy as np
-from gensim.models import Word2Vec
 import matplotlib.pyplot as plt
-
-# set random seeds
-np.random.seed(1)
-random.seed(1)
+import vwe_new
 
 # load all the demo characters
 
@@ -17,26 +11,20 @@ file.close()
 all_characters = [line.replace('\n', '') for line in all_characters]
 
 if __name__ == "__main__":
-    # intialize
-    components_dict = vwe.sequences(all_characters)
-    token_list = vwe.generate_token(components_dict)
+    model = vwe_new.Model(all_characters)
+    model.generate_token()
+    demo_model = model.create_model()
 
-    # train model
-    model = Word2Vec(sentences=token_list, vector_size=100, window=5, min_count=1, workers=4, sg=1, seed=1)
-
-    # generate character embeddings
     all_character_embeddings = []
     character_embed_keys = []
 
-    for c, c_components in components_dict.items():
-        components = components_dict[c]
-        character_embedding = vwe.single_character_embeddings(c, components, model)
-        all_character_embeddings.append(character_embedding)
-        character_embed_keys.append(c)
+    for character in model.transform_into_characters():
+        character.generate_component_embeddings(demo_model)
+        all_character_embeddings.append(character.character_embedding)
+        character_embed_keys.append(character.representation)
     
-    # convert to 2-d
     all_character_embeddings = np.array(all_character_embeddings)
-    reducer = umap.UMAP(n_components=2, random_state=1)
+    reducer = umap.UMAP(n_components=2, min_dist=3, spread=3.0)
     embeddings_2d = reducer.fit_transform(all_character_embeddings)
 
     character_embed_dict = {}
