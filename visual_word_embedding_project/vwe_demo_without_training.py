@@ -1,7 +1,7 @@
 import umap
 import numpy as np
 import matplotlib.pyplot as plt
-import vwe_new
+from vwe_new import Model
 
 # load all the demo characters
 
@@ -10,11 +10,14 @@ all_characters = file.readlines()
 file.close()
 all_characters = [line.replace('\n', '') for line in all_characters]
 
-if __name__ == "__main__":
-    model = vwe_new.Model(all_characters)
-    model.generate_token()
-    demo_model = model.create_model()
+# create model
 
+model = Model(all_characters)
+model.generate_token()
+demo_model = model.create_model()
+
+if __name__ == "__main__":
+    # create embeddings
     all_character_embeddings = []
     character_embed_keys = []
 
@@ -22,10 +25,14 @@ if __name__ == "__main__":
         character.generate_component_embeddings(demo_model)
         all_character_embeddings.append(character.character_embedding)
         character_embed_keys.append(character.representation)
+
+    # dimensionality reduction
     
     all_character_embeddings = np.array(all_character_embeddings)
     reducer = umap.UMAP(n_components=2, min_dist=3, spread=3.0)
     embeddings_2d = reducer.fit_transform(all_character_embeddings)
+
+    # create embedding dictionary
 
     character_embed_dict = {}
 
