@@ -1,10 +1,17 @@
 import numpy as np
 from hanzi_chaizi import HanziChaizi
 from gensim.models import Word2Vec
+from strokes import strokes
 
 # decompose all the characters
 
 hc = HanziChaizi()
+
+def is_character(c: str) -> bool:
+    """
+    check if a character is a real character or a stroke
+    """
+    return strokes(c) > 1
 
 def decompose(c: str, visited=None) -> set[str]:
     """
@@ -36,6 +43,22 @@ def decompose(c: str, visited=None) -> set[str]:
 
     return decompositions
 
+def clean_components(components: list[str]) -> list[str]:
+    """
+    retain only relavant components of a character
+    """
+    clean_components = set()
+    for cp in components:
+        if not is_character(cp):
+            continue
+        else:
+            clean_components.add(cp)
+
+    if clean_components == set():
+        return components
+    
+    return clean_components
+
 class Character:
     """
     a class for representating individual characters
@@ -46,7 +69,7 @@ class Character:
 
     def __init__(self, character: str) -> None:
         self._character = character
-        self._components = list(decompose(character))
+        self._components = list(clean_components(decompose(character)))
         self._components_embeddings = []
     
     @property
